@@ -384,7 +384,7 @@ function chi_tiet_ho_so() {
     if (!detailPanel.classList.contains('active')) {
         detailPanel.classList.add('active');
     } else {
-        detailPanel.classList.remove('active');  // Nếu panel đang hiển thị, thì ẩn đi
+        detailPanel.classList.remove('active'); 
     }
 }
 
