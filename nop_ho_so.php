@@ -39,7 +39,7 @@ da_nop();
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* Header Styles */
+
 header {
     background: linear-gradient(135deg, #0a74da 0%, #0d47a1 100%);
     padding: 0.5rem;
@@ -59,13 +59,12 @@ header {
     font-weight: 600;
 }
 
-/* Layout */
 .center {
     display: flex;
     min-height: calc(100vh - 120px);
 }
 
-/* Sidebar */
+
 .sidebar {
     width: 280px;
     background-color: #f5f5f5;
@@ -123,7 +122,7 @@ header {
     margin: 1rem;
 }
 
-/* Sidebar Items */
+
 .sidebar-item {
     flex: 1;
     padding: 0 1rem;
@@ -151,7 +150,7 @@ header {
     color: #0a74da;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .header h3 {
         font-size: 1.2rem;
@@ -187,7 +186,7 @@ header {
     height: 40px;
 }
 
-/* Logout Button */
+
 .logout {
     padding: 1rem;
     margin-top: auto;
@@ -370,9 +369,9 @@ header {
     transform: translateY(0);
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
-    .application-form {
+    .application-form{
         margin: 1rem;
         padding: 1rem;
     }

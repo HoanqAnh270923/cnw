@@ -145,7 +145,14 @@
                     <p>Cổng thông tin đào tạo</p>
                     <form method="post">
                     <div class="input-group">
+<<<<<<< HEAD
                             <input type="text" name="ho_va_ten" placeholder="Họ và Tên" required>
+=======
+                            <input type="text" placeholder="Họ và Tên" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" placeholder="Tên đăng nhập" required>
+>>>>>>> 4cf3f3dafd5bf2236b2423c891c61201e11c390c
                         </div>
                         <div class="input-group">
                             <input type="text" name="username" placeholder="Tên đăng nhập" required>
