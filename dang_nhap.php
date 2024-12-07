@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    include 'connectdb.php';
+    include 'function.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -89,6 +96,10 @@
             font-size: 16px;
         }
 
+        .login-button:hover {
+            background-color: #0000CD;
+        }
+
         .forgot-password {
             display: flex;
             justify-content: space-between;
@@ -119,7 +130,7 @@
             color: #666;
             margin-top: 20px;
         }
-    </style>
+        </style>
 </head>
 <body>
     <div class="container">
@@ -138,21 +149,29 @@
                     <p>Cổng thông tin đào tạo</p>
                     <form method="post">
                         <div class="input-group">
-                            <input type="text" placeholder="Tên đăng nhập" required>
+                            <input type="text" name="username" placeholder="Tên đăng nhập" required>
                         </div>
                         <div class="input-group">
-                            <input type="password" placeholder="Mật khẩu" required>
+                            <input type="password" name="password" placeholder="Mật khẩu" required>
                         </div>
-                        <button type="submit" class="login-button">Đăng nhập</button>
+                        <button type="submit" name="btn_dang_nhap" class="login-button">Đăng nhập</button>
                     </form>
                     <div class="forgot-password">
                         <a class="fg-pass" href="#">Quên mật khẩu</a>
                         <a class="create-account" href="dang_ky.php">Đăng ký</a>
                     </div>
                 </div>
+<?php
+    if (isset($_POST['btn_dang_nhap'])) {
+        $tk = $_POST['username'];
+        $mk = md5($_POST['password']);
+        kiem_tra_dang_nhap($tk, $mk);
+        $_SESSION['username'] = $tk;
+    }
+?>
             </div>
             <div class="footer">
-                All Rights Reserved Developed by Nguyen Son An
+                All Rights Reserved Developed by Nguyen Phuong Hoang Anh
             </div>
         </div>
     </div>

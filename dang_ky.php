@@ -1,3 +1,6 @@
+<?php
+    include 'connectdb.php';
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -24,6 +27,7 @@
         .banner img {
             width: 100%;
             height: 100%;
+            
         }
         .login-section {
             width: 480px;
@@ -88,6 +92,9 @@
             cursor: pointer;
             font-size: 16px;
         }
+        .login-button:hover {
+            background-color: #0000CD;
+        }
 
         .forgot-password {
             display: flex;
@@ -137,19 +144,48 @@
                     <h2>ĐĂNG NHẬP</h2>
                     <p>Cổng thông tin đào tạo</p>
                     <form method="post">
-                        <div class="input-group">
-                            <input type="text" placeholder="Tên đăng nhập" required>
+                    <div class="input-group">
+                            <input type="text" name="ho_va_ten" placeholder="Họ và Tên" required>
                         </div>
                         <div class="input-group">
-                            <input type="password" placeholder="Mật khẩu" required>
+                            <input type="text" name="username" placeholder="Tên đăng nhập" required>
                         </div>
                         <div class="input-group">
-                            <input type="password" placeholder="Nhập lại mật khẩu" required>
+                            <input type="password" name="password" placeholder="Mật khẩu" required>
                         </div>
-
-
-                        <button type="submit" class="login-button">Đăng kí</button>
+                        <div class="input-group">
+                            <input type="password" name="repassword" placeholder="Nhập lại mật khẩu" required>
+                        </div>
+                        <button type="submit" name="btn_dang_ky" class="login-button">Đăng kí</button>
                     </form>
+                    <?php
+                        if (isset($_POST['btn_dang_ky'])) {
+                            if ($_POST['password'] != $_POST['repassword']) {
+                                header("Location: dang_ky.php");
+                                echo "<script>
+                                alert('Mật khẩu không khớp!');
+                                window.location.href='dang_ky.php';
+                                </script>";
+                            }
+                            $ho_va_ten = $_POST['ho_va_ten'];
+                            $username = $_POST['username'];
+                            $password = $_POST['password'];
+                            $password = md5($password);
+                            $role = 2;
+                            $sql = "INSERT INTO `user`(`id`, `ho_va_ten`, `tai_khoan`, `mat_khau`, `role`) VALUES ('','$ho_va_ten', '$username', '$password', '$role')";
+                            if(mysqli_query($conn, $sql)){
+                                header("Location: dang_nhap.php");
+                                echo "<script>
+                                alert('Đăng ký thành công!');
+                                window.location.href='dang_nhap.php';
+                            </script>";
+                            }
+                        }
+
+                    ?>
+
+
+
                     <div class="forgot-password">
                         <a class="fg-pass" href="#">Quên mật khẩu</a>
                         <a class="create-account" href="dang_nhap.php">Đăng nhập</a>
@@ -157,7 +193,7 @@
                 </div>
             </div>
             <div class="footer">
-                All Rights Reserved Developed by Nguyen Son An
+                All Rights Reserved Developed by Nguyen Phuong Hoang Anh
             </div>
         </div>
     </div>
